@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutech Review portfolio</title>
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+    <style>
+        .middle{
+            background-color: #ffffff;
+            border-radius: 20px;
+            width:80%;
+            text-align: center;
+            /* align-content: center; */
+        }
+        .bdy{
+            height: 400px;
+            overflow-x: scroll;
+            /* overflow-y: hidden; */
+        }
+        .up{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .inner{
+            text-align: left;
+            padding: 8px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width: 650px) {
+            .middle{
+                width: 95%;
+            }
+            .upper>h1{
+                font-size: 20px;
+            }
+            .up>h2{
+                font-size: 0.8em;
+            }
+            .up>h3{
+                font-size: 11px;
+            }
+            .up>p{
+                font-size: 9px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body class="container-login100">
+    <div class="middle">
+        <br>
+        <div class="upper">
+            <h1>Solutech Portfolio</h1>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <div class="bdy">
+            <% if (reviews!=[]) { %>
+                <% for (let i =reviews.length-1; i>=0; i--) { %>
+                    <div class="inner">
+                        <div class="up">
+                            <h2><%= reviews[i].name %></h2>
+                            <h3><%= reviews[i].email %></h3>
+                        </div>
+                        <p class="down">
+                            <%= reviews[i].description %>
+                        </p>
+                        <hr>
+                        
+                    </div>
+                    
+                <% } %>
+            <% }else{ %>
+                <h1>No Data here</h1>
+            <% } %>
+        </div>
+        <br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "solutechportfolio",
+  "version": "1.0.0",
+  "description": "all about soludo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solutech11/MyPortfolio.git"
+  },
+  "author": "Solutech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solutech11/MyPortfolio/issues"
+  },
+  "homepage": "https://github.com/Solutech11/MyPortfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
+  }
+}
