@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000
 //mongoose
 const mongoose= require("mongoose");
 //connecting to db
-mongoose.connect("mongodb://localhost/portfoliosolutech",{useNewUrlParser:true,useUnifiedTopology:true}).then((result)=>{
+mongoose.connect("mongodb+srv://Solutech:Xerewgida@storage.whfg7.mongodb.net/Storage?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true}).then((result)=>{
     if (result) {
         app.listen(port,()=>{
             console.log("http://127.0.0.1:3000/");
