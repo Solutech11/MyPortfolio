@@ -84,7 +84,7 @@ app.post('/solutech1234/login',(req,res)=>{
     const collect= req.body;
     const sess =req.session;
 
-    if (collect.email=="soluwizy@gmail.com" && collect.pass=="Xerewgida1$"){
+    if (collect.email=="soluwizy@gmail.com" && collect.pass=="stech123"){
         sess.Solutech=collect.email;
         res.redirect("/solutech1234/main");
     }else{
