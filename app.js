@@ -138,6 +138,8 @@ app.get('/logout',(req,res)=>{
     }
 })
 
+// app.get('/')
+
 
 // 404
 app.use((req,res)=>{
