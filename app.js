@@ -139,7 +139,9 @@ app.get('/logout',(req,res)=>{
 })
 
 // app.get('/')
-
+app.get('/zohoverify/verifyforzoho.html', (req,res)=>{
+    res.sendFile(__dirname+'/static/verifyforzoho.html')
+})
 
 // 404
 app.use((req,res)=>{
