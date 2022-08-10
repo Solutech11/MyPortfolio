@@ -3,9 +3,11 @@ const express =require("express");
 //initializing express
 const app =express();
 
+require('dotenv').config()
+
 //express session
 const session= require("express-session");
-app.use(session({secret:"UDeyCraze", saveUninitialized:true, resave:true}))
+app.use(session({secret:process.env.sessionkey, saveUninitialized:true, resave:true}))
 
 
 //port number
@@ -31,6 +33,7 @@ const Details = require("./model/details");
 
 //importing bodyparser
 const bodyparser= require("body-parser");
+const Detail = require("./model/details");
 app.use(bodyparser.urlencoded({extended:true}));
 
 //setting view engine
@@ -84,11 +87,37 @@ app.post('/solutech1234/login',(req,res)=>{
     const collect= req.body;
     const sess =req.session;
 
-    if (collect.email=="soluwizy@gmail.com" && collect.pass=="stech123"){
+    if (collect.email==process.env.email && collect.pass==process.env.pass){
         sess.Solutech=collect.email;
         res.redirect("/solutech1234/main");
     }else{
         res.render("loginp", {msg:"*Invalid Details"})
+    }
+})
+
+app.get('/delete/:id',(req,res)=>{
+    const id= req.params.id,
+        sess =req.session.Solutech;
+    if (sess==process.env.email) {
+        Detail.findOne({_id:id},(err,data)=>{
+            if (err) {
+                console.log(err);
+            } else {
+                if (data) {
+                    Details.deleteOne({_id:id},(err)=>{
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            res.redirect("/solutech1234/main");
+                        }
+                    })
+                } else {
+                    res.status(404).render('404')
+                }
+            }
+        })
+    } else {
+        res.status(404).render('404')
     }
 })
 
@@ -142,6 +171,11 @@ app.get('/logout',(req,res)=>{
 app.get('/zohoverify/verifyforzoho.html', (req,res)=>{
     res.sendFile(__dirname+'/static/verifyforzoho.html')
 })
+
+app.get('/resume',(req,res)=>{
+    res.sendFile(__dirname+'/static/resume.pdf')
+})
+
 
 // 404
 app.use((req,res)=>{

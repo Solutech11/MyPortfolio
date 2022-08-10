@@ -68,7 +68,7 @@
                     <div class="inner">
                         <div class="up">
                             <h2><%= reviews[i].name %></h2>
-                            <h3><%= reviews[i].email %></h3>
+                            <h3><a href="mailto:<%= reviews[i].email %>"><%= reviews[i].email %></a> || <a href="/delete/<%= reviews[i]._id %>">Delete</a></h3>
                         </div>
                         <p class="down">
                             <%= reviews[i].description %>
