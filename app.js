@@ -18,15 +18,17 @@ const mongoose= require("mongoose");
 //connecting to db
 mongoose.connect("mongodb+srv://soluwizy:test123@cluster0.x4sbgl2.mongodb.net/?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true}).then((result)=>{
     if (result) {
-        app.listen(port,()=>{
-            console.log("http://127.0.0.1:3000/");
-        })
+        console.log('db connect')
     }
 }).catch((err)=>{
     if (err) {
         console.log(err);
     }
 });
+
+app.listen(port,()=>{
+            console.log("http://127.0.0.1:3000/");
+        })
 // require detail model
 const Details = require("./model/details");
 
